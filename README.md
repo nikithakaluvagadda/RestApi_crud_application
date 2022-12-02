@@ -20,3 +20,8 @@ http://localhost:3400/
 # Swagger is running on
 
 http://localhost:3400/swagger-api-docs/#/
+
+# About Database
+
+create students table in postgres db
+Add 3 columns: id, name, email
