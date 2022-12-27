@@ -8,8 +8,8 @@ chai.should();
 chai.use(chaiHttp);
 
 describe('getStudents', () => {
-    it('should fetch all the details of students', () => {
+    /* it('should fetch all the details of students', () => {
         const response = controller.getStudents();
         expect(response);
-    })
+    }) */
 })

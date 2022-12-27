@@ -35,7 +35,7 @@ const removeStudent = (req, res) => {
     pool.query(queries.getStudentById, [id], (error, results) => {
         const noStudentFound = !results.rows.length;
         if (noStudentFound) {
-            res.send('Student info. does not exists in database');
+            return res.send('Student info. does not exists in database');
         }
         pool.query(queries.removeStudent, [id], (error, results) => {
             if (error) throw error;
@@ -51,7 +51,7 @@ const updateStudent = (req, res) => {
     pool.query(queries.getStudentById, [id], (error, results) => {
         const noStudentFound = !results.rows.length;
         if (noStudentFound) {
-            res.send('Student info. does not exists in database');
+            return res.send('Student info. does not exists in database');
         }
         pool.query(queries.updateStudent, [name, id], (error, results) => {
             if (error) throw error;
