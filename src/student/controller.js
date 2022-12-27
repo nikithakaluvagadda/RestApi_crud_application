@@ -19,7 +19,7 @@ const addStudent = (req, res) => {
     // check if email already exists
     pool.query(queries.checkIfEmailExists, [email], (error, results) => {
         if (results.rows.length) {
-            res.send('Email already exists')
+            return res.status(200).send('Email already exists')
         } else {
             pool.query(queries.addStudent, [id ,name, email], (error, results) => {
                 if (error) throw error;
@@ -35,7 +35,7 @@ const removeStudent = (req, res) => {
     pool.query(queries.getStudentById, [id], (error, results) => {
         const noStudentFound = !results.rows.length;
         if (noStudentFound) {
-            return res.send('Student info. does not exists in database');
+            return res.status(404).send('Student info. does not exists in database');
         }
         pool.query(queries.removeStudent, [id], (error, results) => {
             if (error) throw error;

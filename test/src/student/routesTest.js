@@ -4,7 +4,6 @@ const chaiHttp = require('chai-http');
 const res = require('express/lib/response.js');
 let server = require('../../../server.js');
 
-
 //Assertion style
 chai.should();
 
@@ -45,14 +44,13 @@ describe('CRUD Api', () => {
             chai.request(server)
                 .get('/api/v1/students/' + id)
                 .end((err, response) => {
-                    //response.should.have.status(200);
                     expect(response).status(200);
                 });
             done();
         });
     });
     describe('POST  /api/v1/addStudent', () => {
-        it('It should create the student details', (done) => {
+        it.skip('It should create the student details', (done) => {
             const student  = {
                 "id" : 129,
                 "name" : "chikqqii",
@@ -102,7 +100,7 @@ describe('CRUD Api', () => {
         });
     });
     describe('DELETE  /api/v1/:id', () => {
-        it('It should delete the student details', (done) => {
+        it.skip('It should delete the student details', (done) => {
             const id = 12;
             chai.request(server).delete('/api/v1/students/' + id)
                 .end((err, response)=> {
@@ -115,6 +113,7 @@ describe('CRUD Api', () => {
             const id = 1000;
             chai.request(server).delete('/api/v1/students/' + id)
                 .end((err, response)=> {
+                    expect(response).status(404);
                     expect('Student info. does not exists in database').to.be.a('string');
                 })
             done();
