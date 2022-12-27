@@ -50,11 +50,11 @@ describe('CRUD Api', () => {
         });
     });
     describe('POST  /api/v1/addStudent', () => {
-        it.skip('It should create the student details', (done) => {
+        it('It should create the student details', (done) => {
             const student  = {
-                "id" : 129,
-                "name" : "chikqqii",
-                "email" : "chakqii@gmail.com"
+                "id" : 6,
+                "name" : "restApi",
+                "email" : "crud@gmail.com"
             };
             chai.request(server).post('/api/v1/students/addStudent')
                 .send(student)
@@ -93,15 +93,16 @@ describe('CRUD Api', () => {
         it('It should NOT update the student details', (done) => {
             const id = 1000;
             chai.request(server).put('/api/v1/students/' + id)
-                .end((err, response)=> {
+                .end((err, response) => {
+                    expect(response).status(404);
                     expect('Student info. does not exists in database').to.be.a('string');
                 })
             done();
         });
     });
     describe('DELETE  /api/v1/:id', () => {
-        it.skip('It should delete the student details', (done) => {
-            const id = 12;
+        it('It should delete the student details', (done) => {
+            const id = 13;
             chai.request(server).delete('/api/v1/students/' + id)
                 .end((err, response)=> {
                     expect(response).status(200);
@@ -112,7 +113,7 @@ describe('CRUD Api', () => {
         it('It should NOT delete the student details', (done) => {
             const id = 1000;
             chai.request(server).delete('/api/v1/students/' + id)
-                .end((err, response)=> {
+                .end((err, response) => {
                     expect(response).status(404);
                     expect('Student info. does not exists in database').to.be.a('string');
                 })
