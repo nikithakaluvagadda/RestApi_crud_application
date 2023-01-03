@@ -11,9 +11,9 @@ blocks:
         - name: docker build
           commands:
             - checkout
-            - echo "Nikitha@1999" | docker login -u "nikithakaluvagadda" --password-stdin
-            - 'docker pull "${nikithakaluvagadda}/RestApi_crud_application-addressbook:latest" || true'
-            - 'docker build --cache-from "${nikithakaluvagadda}/RestApi_crud_application-addressbook:latest" -t "${nikithakaluvagadda}/RestApi_crud_application-addressbook:latest" .'
-            - 'docker push "${nikithakaluvagadda}/RestApi_crud_application-addressbook:latest"'
+            - 'echo "${Nikitha@1999}" | docker login -u "${nikithakaluvagadda}" --password-stdin'
+            - 'docker pull "${nikithakaluvagadda}/RestApi_crud_application:latest" || true'
+            - 'docker build --cache-from "${nikithakaluvagadda}/RestApi_crud_application:latest" -t "${nikithakaluvagadda}/RestApi_crud_application:latest" .'
+            - 'docker push "${nikithakaluvagadda}/RestApi_crud_application:latest"'
       secrets:
         - name: dockerhub
