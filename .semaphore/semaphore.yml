@@ -12,8 +12,8 @@ blocks:
           commands:
             - checkout
             - 'echo "${Nikitha@1999}" | docker login -u "${nikithakaluvagadda}" --password-stdin'
-            - 'docker pull "${DOCKER_USERNAME}/dockerizing-nodejs-addressbook:latest" || true'
-            - 'docker build --cache-from "${DOCKER_USERNAME}/dockerizing-nodejs-addressbook:latest" -t "${DOCKER_USERNAME}/dockerizing-nodejs-addressbook:latest" .'
-            - 'docker push "${DOCKER_USERNAME}/dockerizing-nodejs-addressbook:latest"'
+            - 'docker pull "${nikithakaluvagadda}/RestApi_crud_application-addressbook:latest" || true'
+            - 'docker build --cache-from "${nikithakaluvagadda}/RestApi_crud_application-addressbook:latest" -t "${nikithakaluvagadda}/RestApi_crud_application-addressbook:latest" .'
+            - 'docker push "${nikithakaluvagadda}/RestApi_crud_application-addressbook:latest"'
       secrets:
         - name: dockerhub
